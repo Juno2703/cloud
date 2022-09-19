@@ -1,16 +1,32 @@
-
-const { Router } = require("express");
-const express = require("express");
-const PORT = 8080;
+const  express = require("express");
+const PORT = process.env.port || 80;
 const appServer = express();
-const router = express.Router("fs");
+const router = express.Router();
+const fs = require("fs");
 
-Router.get("/", (yeucau, trave) => {
-    dât = fs.readFileSync("./html/main.htm;")
-    trave.send("Main page!!!");
-})
+// ------------------- Routing
+router.get( "/" , (yeucau, trave) => {
+    data = fs.readFileSync("./html/main.html");
+    pageContent = data.toString();
+    trave.send(pageContent);
+});
 
+router.get( "/home" , (yeucau, trave) => {
+    data = fs.readFileSync("./html/home.html");
+    pageContent = data.toString();
+    trave.send(pageContent);
+});
+
+router.get( "/products" , (yeucau, trave) => {
+    data = fs.readFileSync("./html/products.html");
+    pageContent = data.toString();
+    trave.send(pageContent);
+});
+
+
+// -------------------------
 appServer.use("/", router);
+// ----------- RUN / Launching !!! 
+appServer.listen( PORT );
 
-appServer.Listen( PORT );
-console.log("web da mo tai" + PORT);
+console.log("Web da mo tai " + PORT);
