@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "name": "w01.03",
+  "description": "",
+  "version": "1.0.0",
+  "main": "appServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
